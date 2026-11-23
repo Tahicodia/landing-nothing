@@ -1,0 +1,20 @@
+@use '../utils' as *;
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: translateY(0);
+  }
+
+  @include mq(md) {
+    display: none;
+  }
+}

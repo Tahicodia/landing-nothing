@@ -1,0 +1,18 @@
+@use '../utils' as *;
+
+.cta {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+    padding-block: calc(var(--section-y) / 2);
+    text-align: center;
+  }
+
+  &__title {
+    @include caps(var(--fs-cta), 3px, 300);
+
+    color: var(--color-text-dark);
+  }
+}

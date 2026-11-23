@@ -1,0 +1,17 @@
+section.section.works#works
+  .container
+    +section-title('Our awesome works')
+
+    each filter, i in filters
+      input.visually-hidden(type="radio" name="filter" id=`f-${filter.id}` data-filter=filter.id checked=(i === 0))
+
+    .works__chips(aria-label="Фільтр робіт")
+      each filter in filters
+        label.chip(for=`f-${filter.id}` data-filter=filter.id)= filter.label
+
+    .works__grid
+      each work in works
+        +work-card(work, filters.find((f) => f.id === work.category).label)
+
+    p.works__actions
+      button.btn.btn--secondary.works__more(type="button") Load more works

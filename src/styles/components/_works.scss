@@ -1,0 +1,71 @@
+@use '../utils' as *;
+
+.works {
+  &__chips {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 4px;
+    margin: 28px calc(-1 * var(--pad)) 24px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  &__actions {
+    margin-top: 32px;
+  }
+
+  &__more {
+    width: 100%;
+  }
+
+  @each $name in $work-filters {
+    input[data-filter='#{$name}']:checked ~ &__chips .chip[data-filter='#{$name}'] {
+      color: #fff;
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    input[data-filter='#{$name}']:focus-visible ~ &__chips .chip[data-filter='#{$name}'] {
+      @include focus-ring;
+    }
+  }
+
+  @include mq(md) {
+    &__chips {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 28px 0 24px;
+      overflow: visible;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__actions {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    &__more {
+      width: auto;
+    }
+  }
+
+  @include mq(lg) {
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+  }
+}

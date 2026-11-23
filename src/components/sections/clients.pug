@@ -1,0 +1,21 @@
+section.section.clients
+  .container
+    +section-title('Clients & kind words')
+
+    ul.clients__grid
+      each client in clients
+        li.client
+          svg.client__logo(viewBox="0 0 140 36" role="img" aria-label=`Клієнт ${client}`)
+            text(x="70" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="currentColor")= client
+
+    figure.quote
+      +icon('quote', 42)(height="30" class="quote__mark")
+      blockquote.quote__text
+        p= quote.text
+      figcaption.quote__author
+        span.quote__avatar(aria-hidden="true")= quote.initials
+        span.quote__name= quote.name
+        span.quote__role= quote.role
+      .quote__dots(aria-hidden="true")
+        - for (let i = 0; i < quote.pages; i++)
+          span(class=(i === 0 ? 'is-active' : false))

@@ -1,0 +1,16 @@
+.client {
+  display: flex;
+  justify-content: center;
+
+  &__logo {
+    width: 120px;
+    height: auto;
+    color: var(--color-muted);
+    opacity: 0.8;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

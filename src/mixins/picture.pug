@@ -1,0 +1,10 @@
+mixin picture(name, alt, opts = {})
+  -
+    const o = Object.assign({ widths: [400, 800], width: 400, height: 316, sizes: '100vw', cls: '', eager: false }, opts)
+    const dir = '/src/assets/images'
+    const set = (ext) => o.widths.map((w) => `${dir}/${name}-${w}.${ext} ${w}w`).join(', ')
+    const largest = o.widths[o.widths.length - 1]
+  picture
+    source(type="image/avif" srcset=set('avif') sizes=o.sizes)
+    source(type="image/webp" srcset=set('webp') sizes=o.sizes)
+    img(class=o.cls || false src=`${dir}/${name}-${largest}.jpg` srcset=set('jpg') sizes=o.sizes alt=alt width=o.width height=o.height loading=(o.eager ? 'eager' : 'lazy') fetchpriority=(o.eager ? 'high' : false))

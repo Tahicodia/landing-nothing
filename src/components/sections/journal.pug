@@ -1,0 +1,16 @@
+section.section.journal#journal
+  .container
+    +section-title('From the journal')
+
+    .journal__list
+      each post in posts
+        article.post
+          +picture(post.image, '', { widths: [150, 300], width: 300, height: 300, sizes: '(min-width: 768px) 300px, 150px', cls: 'post__img' })
+          .post__body
+            p.post__meta
+              time(datetime=post.date)= formatDate(post.date)
+              span= ` / ${post.category}`
+            h3.post__title
+              a(href="#")= post.title
+            p.post__excerpt= post.excerpt
+            a.post__more(href="#") Read more

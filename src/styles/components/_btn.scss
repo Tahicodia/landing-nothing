@@ -1,0 +1,34 @@
+@use '../utils' as *;
+
+.btn {
+  @include flex-center(inline-flex);
+  @include caps;
+
+  gap: 8px;
+  padding: rem(14) rem(30);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+
+  &--primary {
+    color: #fff;
+    background: var(--color-accent);
+
+    &:hover {
+      background: var(--color-accent-hover);
+    }
+  }
+
+  &--secondary {
+    color: var(--color-text-dark);
+    background: #fff;
+    border-color: var(--color-border);
+
+    &:hover {
+      border-color: var(--color-text-dark);
+    }
+  }
+}

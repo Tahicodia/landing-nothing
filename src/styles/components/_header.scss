@@ -1,0 +1,52 @@
+@use '../utils' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  z-index: 90;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+
+  &__inner {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    height: var(--header-h);
+  }
+
+  &__nav {
+    display: none;
+
+    @include mq(md) {
+      display: block;
+      margin-left: auto;
+    }
+  }
+
+  &__list {
+    @include mq(md) {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @include mq(lg) {
+      gap: 32px;
+    }
+  }
+
+  &__link {
+    @include mq(md) {
+      @include caps;
+
+      color: var(--color-text-dark);
+      transition: color 0.2s;
+
+      &:hover,
+      &.is-active {
+        color: var(--color-accent);
+      }
+    }
+  }
+}

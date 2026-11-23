@@ -1,0 +1,6 @@
+mixin socials(items)
+  ul.socials
+    each item in items
+      li
+        a(href=item.href aria-label=item.name)
+          +icon(item.icon, 14)

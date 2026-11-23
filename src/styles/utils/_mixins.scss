@@ -1,0 +1,28 @@
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@mixin caps($size: var(--fs-ui), $spacing: 1px, $weight: 400) {
+  font-family: var(--font-heading);
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  text-transform: uppercase;
+}
+
+@mixin flex-center($display: flex) {
+  display: $display;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}

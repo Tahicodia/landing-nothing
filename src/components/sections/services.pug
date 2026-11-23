@@ -1,0 +1,11 @@
+section.section.services#services
+  .container
+    +section-title('What do we do')
+
+    ul.services__grid
+      each service in services
+        li.service
+          span.service__icon(aria-hidden="true")
+            +icon(service.icon, 34)
+          h3.service__name= service.title
+          p.service__text= service.text

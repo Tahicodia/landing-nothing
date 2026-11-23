@@ -1,0 +1,90 @@
+@use '../utils' as *;
+
+.footer {
+  padding-block: 48px 24px;
+  color: #fff;
+  background: var(--color-footer);
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include mq(md) {
+      flex-direction: row;
+      gap: 60px;
+      justify-content: space-between;
+    }
+
+    @include mq(lg) {
+      align-items: flex-start;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 48px;
+    order: 2;
+
+    @include mq(md) {
+      gap: 60px;
+      order: 0;
+    }
+
+    @include mq(lg) {
+      gap: 80px;
+    }
+  }
+
+  &__heading {
+    @include caps(12px, 1.5px);
+
+    margin-bottom: 14px;
+    color: rgb(255 255 255 / 55%);
+  }
+
+  &__col {
+    li + li {
+      margin-top: 8px;
+    }
+
+    a {
+      font-size: 13px;
+      color: rgb(255 255 255 / 75%);
+      transition: color 0.2s;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    padding-top: 24px;
+    margin-top: 48px;
+    border-top: 1px solid rgb(255 255 255 / 12%);
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__copy {
+    font-size: 12px;
+    color: rgb(255 255 255 / 55%);
+  }
+
+  .socials a {
+    color: rgb(255 255 255 / 75%);
+    border-color: rgb(255 255 255 / 25%);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

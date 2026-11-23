@@ -1,0 +1,10 @@
+mixin work-card(work, label)
+  article.work(data-category=work.category)
+    +picture(work.image, work.alt, { sizes: '(min-width: 1280px) 400px, (min-width: 768px) 33vw, 100vw' })
+    .work__overlay
+      a.work__link(href="#")
+        span.work__plus(aria-hidden="true")
+          +icon('plus', 18)
+        h3.work__name= work.title
+        span.work__line(aria-hidden="true")
+        span.work__cat= label

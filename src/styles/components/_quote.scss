@@ -1,0 +1,71 @@
+@use '../utils' as *;
+
+.quote {
+  padding: 48px 24px;
+  margin-top: 40px;
+  text-align: center;
+  background: var(--color-bg-light);
+
+  &__mark {
+    color: var(--color-accent);
+  }
+
+  &__text {
+    max-width: 620px;
+    margin: 20px auto 0;
+    font-size: var(--fs-quote);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    margin-top: 28px;
+  }
+
+  &__avatar {
+    @include flex-center;
+
+    width: rem(56);
+    height: rem(56);
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #fff;
+    background: var(--color-text-dark);
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+  }
+
+  &__role {
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+
+  &__dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 28px;
+
+    span {
+      width: 8px;
+      height: 8px;
+      background: var(--color-dot);
+      border-radius: 50%;
+
+      &.is-active {
+        background: var(--color-accent);
+      }
+    }
+  }
+}

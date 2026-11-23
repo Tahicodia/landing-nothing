@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+@mixin tokens($map) {
+  @each $name, $value in $map {
+    --#{$name}: #{$value};
+  }
+}
+
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $fonts {
+    --font-#{$name}: #{$value};
+  }
+
+  @include tokens(map.get($sizes, 'base'));
+
+  @include mq(md) {
+    @include tokens(map.get($sizes, 'md'));
+  }
+
+  @include mq(lg) {
+    @include tokens(map.get($sizes, 'lg'));
+  }
+}

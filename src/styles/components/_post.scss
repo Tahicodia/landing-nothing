@@ -1,0 +1,57 @@
+@use '../utils' as *;
+
+.post {
+  display: flex;
+  gap: 14px;
+
+  &__img {
+    flex: none;
+    width: rem(96);
+    height: rem(96);
+    object-fit: cover;
+
+    @include mq(md) {
+      width: rem(150);
+      height: rem(150);
+    }
+  }
+
+  &__meta {
+    @include caps(11px);
+
+    color: var(--color-muted);
+
+    span {
+      color: var(--color-accent);
+    }
+  }
+
+  &__title {
+    @include caps(15px, 0.5px);
+
+    margin-top: 6px;
+    color: var(--color-text-dark);
+
+    a:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__excerpt {
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  &__more {
+    @include caps(12px);
+
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--color-accent);
+
+    &:hover {
+      color: var(--color-accent-hover);
+    }
+  }
+}

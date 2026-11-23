@@ -1,0 +1,98 @@
+@use '../utils' as *;
+
+.menu {
+  margin-left: auto;
+
+  &__toggle {
+    @include flex-center;
+
+    width: 40px;
+    height: 40px;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    list-style: none;
+    border: 1px solid var(--color-border);
+    transition: border-color 0.2s;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:hover {
+      border-color: var(--color-text-dark);
+    }
+  }
+
+  &__icon-close {
+    display: none;
+  }
+
+  &[open] &__icon-close {
+    display: block;
+  }
+
+  &[open] &__icon-burger {
+    display: none;
+  }
+
+  &__panel {
+    position: fixed;
+    top: var(--header-h);
+    right: 0;
+    left: 0;
+    z-index: 80;
+    max-height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 10px 30px rgb(30 32 36 / 12%);
+  }
+
+  &__list li + li {
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__link {
+    @include caps;
+
+    display: block;
+    padding: 14px 20px;
+    color: var(--color-text-dark);
+
+    &:hover,
+    &.is-active {
+      color: var(--color-accent);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--color-border);
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  &__contacts {
+    padding: 16px 20px 20px;
+    font-size: 13px;
+    color: var(--color-muted);
+    border-top: 1px solid var(--color-border);
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    .socials {
+      margin-top: 12px;
+    }
+  }
+
+  @include mq(md) {
+    display: none;
+  }
+}

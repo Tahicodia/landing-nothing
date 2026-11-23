@@ -1,0 +1,10 @@
+-
+  const posts = [
+    { date: '2026-03-02', category: 'Branding', image: 'journal-1', title: 'What a brand book really changes', excerpt: 'It is not a PDF nobody opens. It is the set of rules that keeps 40 future decisions consistent.' },
+    { date: '2026-02-18', category: 'Web', image: 'journal-2', title: '5 flexbox mistakes we see every day', excerpt: 'Margins that fight, centers of the world, and why your grid overflows on mobile.' },
+    { date: '2026-02-04', category: 'Identity', image: 'journal-3', title: 'Building an identity from scratch', excerpt: 'A case study of the Atlas Watches rebrand: 6 weeks, 3 directions and 1 big decision.' },
+    { date: '2026-01-21', category: 'Motion', image: 'journal-4', title: 'Why motion makes interfaces feel alive', excerpt: 'Easing, timing and small micro-interactions that turn a page into an experience.' }
+  ]
+
+  const formatDate = (iso) =>
+    new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })

@@ -1,0 +1,40 @@
+mixin icon(name, size = 16)
+  -
+    const line = { fill: 'none', stroke: 'currentColor', 'stroke-width': 1.6, 'stroke-linejoin': 'round' }
+    const thick = { fill: 'none', stroke: 'currentColor', 'stroke-width': 2 }
+    const solid = { fill: 'currentColor' }
+    const viewBox = name === 'quote' ? '0 0 36 24' : '0 0 24 24'
+  svg(width=size height=size viewBox=viewBox aria-hidden="true" focusable="false")&attributes(attributes)
+    case name
+      when 'heart'
+        path(d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09A5.99 5.99 0 0 1 16.5 3C19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z")&attributes(solid)
+      when 'burger'
+        path(d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z")&attributes(solid)
+      when 'close'
+        path(d="M5 5l14 14M19 5L5 19")&attributes(thick)
+      when 'plus'
+        path(d="M12 5v14M5 12h14")&attributes(thick)
+      when 'arrow-up'
+        path(d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round")&attributes(thick)
+      when 'mail'
+        path(d="M3 5h18v14H3z M3 6.5l9 6.5 9-6.5")&attributes(line)
+      when 'facebook'
+        path(d="M13 22v-8h3l.5-4H13V7.5c0-1 .3-1.8 1.9-1.8H17V2.2C16.6 2.1 15.4 2 14.1 2 11.3 2 9.5 3.7 9.5 6.9V10H6.5v4h3v8h3.5z")&attributes(solid)
+      when 'twitter'
+        path(d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.3 1.7-2.2-.8.5-1.7.8-2.6 1A4.1 4.1 0 0 0 11.9 9c0 .3 0 .6.1.9C8.6 9.7 5.6 8.2 3.5 5.7c-.4.7-.6 1.5-.6 2.3 0 1.4.7 2.7 1.8 3.5-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2 2.8 3.8 2.8A8.3 8.3 0 0 1 2 19.5a11.7 11.7 0 0 0 6.3 1.9c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z")&attributes(solid)
+      when 'instagram'
+        path(d="M12 2.2c2.7 0 3 0 4 .1 1 0 1.6.2 2 .4.5.2.9.4 1.3.8.4.4.6.8.8 1.3.2.4.4 1 .4 2 .1 1 .1 1.3.1 4s0 3-.1 4c0 1-.2 1.6-.4 2-.2.5-.4.9-.8 1.3-.4.4-.8.6-1.3.8-.4.2-1 .4-2 .4-1 .1-1.3.1-4 .1s-3 0-4-.1c-1 0-1.6-.2-2-.4a3.5 3.5 0 0 1-1.3-.8 3.5 3.5 0 0 1-.8-1.3c-.2-.4-.4-1-.4-2-.1-1-.1-1.3-.1-4s0-3 .1-4c0-1 .2-1.6.4-2 .2-.5.4-.9.8-1.3.4-.4.8-.6 1.3-.8.4-.2 1-.4 2-.4 1-.1 1.3-.1 4-.1zm0 2c-2.6 0-2.9 0-4 .1-.9 0-1.4.2-1.7.3-.4.2-.7.4-1 .7-.3.3-.5.6-.7 1-.1.3-.3.8-.3 1.7-.1 1.1-.1 1.4-.1 4s0 2.9.1 4c0 .9.2 1.4.3 1.7.2.4.4.7.7 1 .3.3.6.5 1 .7.3.1.8.3 1.7.3 1.1.1 1.4.1 4 .1s2.9 0 4-.1c.9 0 1.4-.2 1.7-.3.4-.2.7-.4 1-.7.3-.3.5-.6.7-1 .1-.3.3-.8.3-1.7.1-1.1.1-1.4.1-4s0-2.9-.1-4c0-.9-.2-1.4-.3-1.7-.2-.4-.4-.7-.7-1a2.7 2.7 0 0 0-1-.7c-.3-.1-.8-.3-1.7-.3-1.1-.1-1.4-.1-4-.1zm0 3.1a5.6 5.6 0 1 1 0 11.2 5.6 5.6 0 0 1 0-11.2zm0 2a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2zm5.8-2.4a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z")&attributes(solid)
+      when 'quote'
+        path(d="M4.5 24C1.8 24 .5 22.2.5 19.5.5 13 3.9 7.8 9.5 4l2 3c-3.6 2.4-5.6 5-6 8h5v9H4.5zM22.5 24c-2.7 0-4-1.8-4-4.5 0-6.5 3.4-11.7 9-15.5l2 3c-3.6 2.4-5.6 5-6 8h5v9h-6z")&attributes(solid)
+      when 'branding'
+        path(d="M12 2l7 9-7 9-7-9z M9.5 11.5L12 8")&attributes(line)
+      when 'web'
+        rect(x="2.5" y="4" width="19" height="13")&attributes(line)
+        path(d="M8 21h8M12 17v4")&attributes(line)
+      when 'identity'
+        circle(cx="12" cy="8.5" r="3")&attributes(line)
+        path(d="M5.5 20c1.4-3.2 3.8-4.8 6.5-4.8s5.1 1.6 6.5 4.8" stroke-linecap="round")&attributes(line)
+        path(d="M4 3.5h16v17H4z")&attributes(line)
+      when 'print'
+        path(d="M7 8V3h10v5M5 8h14a1 1 0 0 1 1 1v6h-4M8 15H4V9a1 1 0 0 1 1-1")&attributes(line)
+        rect(x="7" y="12" width="10" height="9")&attributes(line)

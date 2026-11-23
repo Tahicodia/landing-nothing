@@ -1,0 +1,19 @@
+@use '../utils' as *;
+
+.clients {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: center;
+    margin-top: 40px;
+
+    @include mq(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq(lg) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}

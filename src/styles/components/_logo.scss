@@ -1,0 +1,30 @@
+@use '../utils' as *;
+
+.logo {
+  @include flex-center(inline-flex);
+
+  gap: 10px;
+  font-family: var(--font-logo);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+
+  &__badge {
+    @include flex-center(inline-flex);
+
+    width: rem(34);
+    height: rem(34);
+    color: #fff;
+    background: var(--color-text-dark);
+    border-radius: 50%;
+  }
+
+  @include mq(md) {
+    font-size: 26px;
+
+    &__badge {
+      width: rem(40);
+      height: rem(40);
+    }
+  }
+}
