@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "figma": "node scripts/figma-export.mjs"
+    "figma": "node scripts/figma-export.mjs",
+    "lint": "npm run lint:css"
   },
   "devDependencies": {
     "@vituum/vite-plugin-pug": "^2.0.1",
