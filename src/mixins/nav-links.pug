@@ -1,5 +1,0 @@
-mixin nav-links(items, prefix)
-  ul(class=`${prefix}__list`)
-    each item in items
-      li
-        a(class=[`${prefix}__link`, { 'is-active': item.active }] href=item.href)= item.text

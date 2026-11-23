@@ -1,0 +1,39 @@
+$font-families: (
+  'heading': "'Space Grotesk', sans-serif",
+  'body': "'Space Mono', monospace",
+  'ui': "'Inter', sans-serif",
+);
+$font-weights: (
+  'regular': 400,
+  'medium': 500,
+  'bold': 700,
+);
+$line-heights: (
+  'tight': 1,
+  'base': 1.4,
+  'button': 1.6875,
+);
+$letter-spacings: (
+  'wide': 2px,
+);
+$font-sizes: (
+  'base': (
+    'h1': 36px,
+    'h2': 32px,
+    'h3': 18px,
+    'title': 18px,
+    'text': 16px,
+    'small': 14px,
+    'caption': 12px,
+    'menu': 22px,
+  ),
+  'md': (
+    'h1': 48px,
+    'h2': 40px,
+    'h3': 24px,
+  ),
+  'lg': (
+    'h1': 56px,
+    'h2': 48px,
+  ),
+);

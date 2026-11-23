@@ -1,0 +1,36 @@
+$container-max: 1260px;
+$radii: (
+  'sm': 4px,
+  'md': 8px,
+);
+$spacing: (
+  'xs': 8px,
+  'sm': 16px,
+  'md': 24px,
+  'lg': 32px,
+  'xl': 48px,
+);
+$layout: (
+  'base': (
+    'columns': 2,
+    'margin': 20px,
+    'gutter': 20px,
+    'header-h': 72px,
+    'hero-h': 568px,
+    'banner-h': 200px,
+  ),
+  'md': (
+    'columns': 6,
+    'margin': 72px,
+    'gutter': 24px,
+    'header-h': 96px,
+    'hero-h': 993px,
+    'banner-h': 400px,
+  ),
+  'lg': (
+    'columns': 12,
+    'margin': 120px,
+    'hero-h': 720px,
+    'banner-h': 460px,
+  ),
+);

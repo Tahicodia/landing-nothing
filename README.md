@@ -1,71 +1,80 @@
-# Keepsake — design agency landing
+# Nothing — landing
 
-Лендінг дизайн-агенції Keepsake. Це перенесення сторінки з лабораторної роботи 7 на сучасний стек: Pug + SCSS + Vite. Дизайн і поведінка не змінилися.
+Лендінг бренду Nothing за макетом Figma (варіант 2). Стек: Vite, Pug, SCSS, PostCSS, sharp. Методологія: BEM + ITCSS.
 
-**Демо:** https://tahicodia.github.io/ЗАМІНИ-НА-НАЗВУ-РЕПОЗИТОРІЮ/
-**Репозиторій:** https://github.com/tahicodia/ЗАМІНИ-НА-НАЗВУ-РЕПОЗИТОРІЮ
+## Дизайн-токени
 
-## Технології
+### Сітка
 
-- **Vite** — збірка та dev-сервер
-- **Pug** (`vituum` + `@vituum/vite-plugin-pug`) — шаблони, міксини, дані окремо від розмітки
-- **SCSS** — `@use`/`@forward`, змінні та карти, міксини, BEM, mobile-first
-- **PostCSS + Autoprefixer + Browserslist** — префікси за списком браузерів
-- **sharp** — оптимізація зображень (AVIF, WebP, JPEG)
-- **Prettier, Stylelint, husky, lint-staged** — якість коду
-- **GitHub Actions + GitHub Pages** — автоматичний деплой
+| Фрейм | Колонки | Ширина колонки | Gutter | Поля                   |
+| ----- | ------- | -------------- | ------ | ---------------------- |
+| 320   | 2       | 130px          | 20px   | 20px                   |
+| 744   | 6       | 80px           | 24px   | 72px                   |
+| 1260  | 12      | 63px           | 24px   | 120px (контент 1020px) |
 
-## Структура проєкту
+Брейкпоінти: `md` — 744px, `lg` — 1260px (mobile first).
 
-```
-src/
-  layouts/      каркас сторінки
-  pages/        сторінки (index.pug)
-  includes/     meta, шрифти
-  data/         дані: навігація, роботи, послуги, статистика, журнал…
-  mixins/       btn, icon, picture, work-card, socials…
-  components/   header, footer, секції
-  styles/
-    utils/      змінні, брейкпоінти, функції, міксини
-    base/       :root, reset, типографіка
-    layout/     container, section
-    components/ стилі компонентів (BEM)
-scripts/images.mjs   генерація зображень
-images-src/          вихідні SVG
-```
+### Кольори
 
-## Команди
+| Токен            | Значення  | Де використовується              |
+| ---------------- | --------- | -------------------------------- |
+| `ink`            | `#292929` | текст, основна кнопка, іконки    |
+| `ink-strong`     | `#191919` | значення в контактах             |
+| `pressed`        | `#111111` | кнопка в стані pressed           |
+| `white`          | `#ffffff` | фон сторінки, текст на кнопці    |
+| `surface`        | `#f8f8fa` | поля форми, кнопка в стані hover |
+| `surface-border` | `#f0f1f4` | рамка кнопки hover               |
+| `field-hover`    | `#d5d7de` | рамка поля hover                 |
+| `muted`          | `#7e7e83` | placeholder                      |
+| `label`          | `#9393a3` | підписи в контактах              |
+| `menu-bg`        | `#e5e6e8` | фон меню                         |
 
-| Команда            | Що робить                                                   |
-| ------------------ | ----------------------------------------------------------- |
-| `npm install`      | встановлює залежності                                       |
-| `npm run dev`      | dev-сервер на `localhost:5173`                              |
-| `npm run build`    | збирає сайт у `dist`                                        |
-| `npm run preview`  | показує зібраний сайт на `localhost:4173`                   |
-| `npm run images`   | генерує AVIF/WebP/JPEG з `images-src` у `src/assets/images` |
-| `npm run lint:css` | перевіряє SCSS Stylelint                                    |
-| `npm run format`   | форматує код Prettier                                       |
+### Типографіка
 
-## Оптимізація зображень
+| Роль               | Шрифт         | Вага | Розмір (320 / 744 / 1260)         | Висота рядка |
+| ------------------ | ------------- | ---- | --------------------------------- | ------------ |
+| h1                 | Space Grotesk | 700  | 36 / 48 / 56                      | 1            |
+| h2                 | Space Grotesk | 700  | 32 / 40 / 48                      | 1            |
+| h3 (категорії)     | Space Grotesk | 700  | 18 / 24 / 24                      | 1.4          |
+| назва картки       | Space Grotesk | 700  | 18                                | 1.4          |
+| кнопка             | Space Grotesk | 700  | 16                                | 27px         |
+| посилання меню     | Space Grotesk | 700  | 22, letter-spacing 2px            | 1            |
+| основний текст     | Space Mono    | 400  | 16                                | 1.4          |
+| поля форми         | Space Mono    | 400  | 14                                | 1.4          |
+| підпис у контактах | Space Grotesk | 400  | 14                                | 1.4          |
+| телефон у шапці    | Inter         | 700  | 12, uppercase, letter-spacing 2px | 16px         |
 
-Скрипт `scripts/images.mjs` перетворює SVG з `images-src` на растрові файли двох розмірів і трьох форматів: AVIF, WebP, JPEG. Роботи — 400 і 800 px, журнал — 150 і 300 px. На сторінці вони підключаються міксином `picture` через `<picture>` з `srcset` та `sizes`, JPEG — запасний варіант. Зображення нижче першого екрана мають `loading="lazy"`.
+### Інше
 
-## Якість коду
+| Токен        | Значення                                     |
+| ------------ | -------------------------------------------- |
+| Радіуси      | 4px (картки, зображення), 8px (кнопки, поля) |
+| Відступи     | 8, 16, 24, 32, 48px                          |
+| Висота шапки | 72 / 96 / 96px                               |
+| Hero         | 568 / 993 / 720px                            |
+| Банер        | 200 / 400 / 460px                            |
 
-- **Prettier** форматує JS, JSON, MD і SCSS.
-- **Stylelint** (`stylelint-config-standard-scss`) перевіряє SCSS: BEM-назви класів, без `id` і `!important`, вкладеність до 3 рівнів.
-- **husky + lint-staged** запускають перевірки перед кожним комітом лише для змінених файлів.
+## Декомпозиція на BEM-блоки
 
-## Підтримка браузерів
+Об'єкти (`o-`): `o-container` (поля та max-width), `o-grid` (колонки сітки).
 
-Список браузерів задано у `.browserslistrc`:
+Компоненти (`c-`):
 
-```
-> 0.5%
-last 2 versions
-not dead
-```
+| Блок              | Елементи                          | Модифікатори                                   |
+| ----------------- | --------------------------------- | ---------------------------------------------- |
+| `c-header`        | `logo`, `actions`                 |                                                |
+| `c-icon-button`   | `icon`                            | `--phone`, `--burger`, `--close` (стани hover) |
+| `c-menu`          | `list`, `link`, `phone`, `call`   | `--open`                                       |
+| `c-hero`          | `image`, `title`                  |                                                |
+| `c-section-title` |                                   |                                                |
+| `c-product-card`  | `image`, `title`, `text`, `price` |                                                |
+| `c-category`      | `image`, `title`                  | `--reverse` (широке зображення праворуч)       |
+| `c-button`        | `text`                            | `--primary` (default, hover, pressed)          |
+| `c-field`         | `input`, `textarea`               | стани hover, focus, filled                     |
+| `c-banner`        | `image`                           |                                                |
+| `c-about`         | `title`, `text`                   |                                                |
+| `c-contacts`      | `item`, `label`, `value`          |                                                |
 
-## Деплой
+Утиліти (`u-`): `u-visually-hidden`.
 
-Сайт публікується на GitHub Pages через GitHub Actions (`.github/workflows/deploy.yml`) після кожного пушу в `main`. У `vite.config.js` задано `base: './'`, тому сайт працює в підпапці репозиторію.
+Однакові елементи — один блок із модифікаторами: три картки товарів — `c-product-card`, три ряди категорій — `c-category` із `--reverse`, дві кнопки (View all, Send) — `c-button`, усі поля форми — `c-field`.

@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use '../1-settings' as *;
+@use '../2-tools' as *;
+
+@mixin props($map, $prefix: '') {
+  @each $name, $value in $map {
+    --#{$prefix}#{$name}: #{$value};
+  }
+}
+
+:root {
+  @include props($colors, 'color-');
+  @include props($font-families, 'font-');
+  @include props($font-weights, 'fw-');
+  @include props($line-heights, 'lh-');
+  @include props($letter-spacings, 'ls-');
+  @include props($radii, 'radius-');
+  @include props($spacing, 'space-');
+
+  --container-max: #{$container-max};
+
+  @include props(map.get($font-sizes, 'base'), 'fs-');
+  @include props(map.get($layout, 'base'));
+
+  @include mq(md) {
+    @include props(map.get($font-sizes, 'md'), 'fs-');
+    @include props(map.get($layout, 'md'));
+  }
+
+  @include mq(lg) {
+    @include props(map.get($font-sizes, 'lg'), 'fs-');
+    @include props(map.get($layout, 'lg'));
+  }
+}
