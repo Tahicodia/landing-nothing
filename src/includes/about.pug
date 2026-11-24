@@ -3,5 +3,9 @@ section#about.c-section.c-section--tight.c-about
     .o-grid
       h2.c-section__title.c-section__title--inline About us
       .c-about__text
-        each paragraph in about
-          p.c-about__p= paragraph
+        each lines in about
+          p.c-about__p
+            each line, i in lines
+              if i
+                br
+              = line
