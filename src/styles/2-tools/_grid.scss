@@ -1,0 +1,9 @@
+// span: займає N колонок, початок визначає авторозміщення
+@mixin span($n) {
+  grid-column: span $n;
+}
+
+// col: починає з колонки $start і займає $span колонок
+@mixin col($start, $span) {
+  grid-column: #{$start} / span #{$span};
+}

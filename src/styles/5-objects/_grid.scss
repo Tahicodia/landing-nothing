@@ -1,0 +1,17 @@
+.o-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  column-gap: var(--gutter);
+
+  &--debug {
+    --col: calc((100% - (var(--columns) - 1) * var(--gutter)) / var(--columns));
+
+    background-image: repeating-linear-gradient(
+      to right,
+      rgb(255 0 0 / 10%) 0,
+      rgb(255 0 0 / 10%) var(--col),
+      transparent var(--col),
+      transparent calc(var(--col) + var(--gutter))
+    );
+  }
+}
