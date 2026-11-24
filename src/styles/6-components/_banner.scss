@@ -1,0 +1,12 @@
+// Кадрування за Image logic: fill width по центру зображення
+.c-banner {
+  margin-top: var(--section-gap);
+  height: var(--banner-h);
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}

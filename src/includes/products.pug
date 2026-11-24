@@ -1,0 +1,14 @@
+section#recommended.c-section.c-section--first
+  .o-container
+    .o-grid
+      h2.c-section__title Recommended
+      ul.o-grid.c-section__list
+        each product in products
+          li.c-product-card
+            +picture({ name: product.image, widths: [560, 1200], sizes: sizes.product, width: 1200, height: 1200, alt: product.name, cls: 'c-product-card__img' })
+            h3.c-product-card__name= product.name
+            p.c-product-card__text
+              if product.lead
+                span.c-product-card__lead= product.lead + ' '
+              = product.text
+            p.c-product-card__price= product.price

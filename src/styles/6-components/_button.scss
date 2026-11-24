@@ -1,0 +1,29 @@
+@use '../2-tools' as *;
+
+.c-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: rem(56);
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-button);
+  color: var(--color-white);
+  cursor: pointer;
+  background: var(--color-ink);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+
+  &:hover {
+    color: var(--color-ink);
+    background: var(--color-surface);
+    border-color: var(--color-surface-border);
+  }
+
+  &:active {
+    color: var(--color-white);
+    background: var(--color-pressed);
+    border-color: transparent;
+  }
+}

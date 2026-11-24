@@ -1,0 +1,29 @@
+section#contact.c-section.c-section--last
+  .o-container
+    .o-grid
+      h2.c-section__title Contact us
+      form.c-contact__form(action='#' method='post')
+        label.u-visually-hidden(for='name') Name
+        input#name.c-field(type='text' name='name' autocomplete='name' placeholder='Name' required)
+        label.u-visually-hidden(for='email') Email
+        input#email.c-field(type='email' name='email' autocomplete='email' placeholder='Email' required)
+        label.u-visually-hidden(for='message') Message
+        textarea#message.c-field.c-field--area(name='message' autocomplete='off' placeholder='Message' required)
+        button.c-button.c-contact__submit(type='submit') Send
+      dl.c-contact__info
+        .c-contact__item
+          dt.c-contact__label Phone
+          dd.c-contact__value
+            a(href=phone.href)= phone.text
+        .c-contact__item
+          dt.c-contact__label Email
+          dd.c-contact__value
+            a(href=`mailto:${email}`)= email
+        .c-contact__item
+          dt.c-contact__label Address
+          dd.c-contact__value
+            address.c-contact__address
+              each line, i in address
+                if i
+                  br
+                = line

@@ -1,0 +1,62 @@
+@use '../2-tools' as *;
+
+// Форма і контакти ділять рядок: на lg — колонки 1–5 і 7–12
+.c-contact {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    grid-row: 2;
+
+    @include span(2);
+
+    @include mq(md) {
+      @include span(6);
+    }
+
+    @include mq(lg) {
+      @include col(1, 5);
+    }
+  }
+
+  &__submit {
+    margin-top: var(--space-sm);
+  }
+
+  &__info {
+    grid-row: 3;
+    margin: var(--contacts-gap) 0 0;
+
+    @include span(2);
+
+    @include mq(md) {
+      @include span(4);
+    }
+
+    @include mq(lg) {
+      @include col(7, 6);
+
+      grid-row: 2;
+    }
+  }
+
+  &__item + &__item {
+    margin-top: var(--space-md);
+  }
+
+  &__label {
+    font-family: var(--font-heading);
+    font-size: var(--fs-small);
+    line-height: var(--lh-base);
+    color: var(--color-label);
+  }
+
+  &__value {
+    margin: var(--space-xs) 0 0;
+    color: var(--color-ink-strong);
+  }
+
+  &__address {
+    font-style: normal;
+  }
+}

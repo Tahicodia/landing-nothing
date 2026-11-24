@@ -1,0 +1,42 @@
+@use '../2-tools' as *;
+
+.c-field {
+  display: block;
+  width: 100%;
+  padding: 13px 15px;
+  font-size: var(--fs-small);
+  line-height: var(--lh-base);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+
+  &::placeholder {
+    color: var(--color-muted);
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: var(--color-field-hover);
+  }
+
+  // Рамка замінює outline, щоб збігатися з макетом
+  &:focus-visible {
+    border-color: var(--color-ink);
+    outline: 0;
+  }
+
+  &:not(:placeholder-shown) {
+    color: var(--color-ink);
+  }
+
+  &:user-invalid,
+  &:invalid:not(:placeholder-shown, :focus) {
+    border-color: var(--color-error);
+  }
+
+  &--area {
+    min-height: rem(148);
+    resize: vertical;
+  }
+}

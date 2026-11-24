@@ -1,0 +1,35 @@
+.c-icon-button {
+  position: relative;
+  display: block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--color-ink);
+
+  // Підпис з'являється зліва від іконки (hover на телефоні)
+  &__label {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-right: var(--space-xs);
+    font-family: var(--font-ui);
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-bold);
+    line-height: 1.3334;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  &:hover &__label,
+  &:focus-visible &__label {
+    opacity: 1;
+  }
+
+  // Бургер: на hover іконка трохи світлішає
+  &--menu:hover {
+    opacity: 0.6;
+  }
+}

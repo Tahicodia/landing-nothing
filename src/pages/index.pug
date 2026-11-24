@@ -1,15 +1,18 @@
 extends ../layouts/main
 
 block title
-  title Nothing
-
-block fonts
-  include ../includes/fonts
+  title Nothing — Bring joy back to the everyday
 
 block content
-  main.o-container
-    .o-grid.o-grid--debug.c-demo-layout
-      each n in [1, 2, 3]
-        .c-demo.c-demo-layout__card
-      .c-demo.c-demo-layout__wide
-      .c-demo.c-demo-layout__narrow
+  include ../data/site
+  include ../mixins/media
+  include ../mixins/icons
+  include ../mixins/logo
+  include ../includes/header
+  main
+    include ../includes/hero
+    include ../includes/products
+    include ../includes/categories
+    include ../includes/banner
+    include ../includes/about
+    include ../includes/contact

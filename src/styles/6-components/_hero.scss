@@ -1,0 +1,35 @@
+@use '../2-tools' as *;
+
+// Кадрування за Image logic: cover + центр (desktop: fill width, tablet/mobile: fill height)
+.c-hero {
+  position: relative;
+  height: var(--hero-h);
+  min-height: 100svh;
+  overflow: hidden;
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  &__content {
+    position: absolute;
+    inset: auto 0 var(--hero-gap);
+  }
+
+  &__title {
+    @include span(2);
+
+    @include mq(md) {
+      @include span(4);
+    }
+
+    @include mq(lg) {
+      @include span(6);
+    }
+  }
+}

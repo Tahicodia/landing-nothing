@@ -1,0 +1,10 @@
+header.c-header
+  .c-header__bar.o-container
+    +logo
+    .c-header__actions
+      a.c-icon-button(href=phoneShort.href)
+        span.c-icon-button__label= phoneShort.text
+        +icon('phone')
+      a.c-icon-button.c-icon-button--menu(href='#menu' aria-label='Open menu')
+        +icon('burger')
+  include menu

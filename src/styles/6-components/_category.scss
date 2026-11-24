@@ -1,0 +1,40 @@
+@use '../2-tools' as *;
+
+// Рядок галереї: два зображення (широке і вузьке) та підпис під ними
+.c-category {
+  grid-column: 1 / -1;
+  row-gap: var(--space-sm);
+
+  &__img {
+    @include span(1);
+
+    width: 100%;
+    height: var(--cat-h);
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+
+    &--wide {
+      @include mq(md) {
+        @include span(4);
+      }
+
+      @include mq(lg) {
+        @include span(8);
+      }
+    }
+
+    &--narrow {
+      @include mq(md) {
+        @include span(2);
+      }
+
+      @include mq(lg) {
+        @include span(4);
+      }
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+  }
+}

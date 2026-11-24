@@ -1,0 +1,8 @@
+.c-logo {
+  display: block;
+
+  &__img {
+    width: var(--logo-w);
+    height: var(--logo-h);
+  }
+}

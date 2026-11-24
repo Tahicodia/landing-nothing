@@ -9,6 +9,7 @@ export default {
     'selector-max-id': 0,
     'declaration-no-important': true,
     'max-nesting-depth': 3,
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['user-invalid'] }],
     'selector-class-pattern': [itcssClass, { resolveNestedSelectors: true }],
   },
   overrides: [

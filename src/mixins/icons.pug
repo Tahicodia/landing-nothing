@@ -1,0 +1,10 @@
+//- Інлайн SVG з src/assets/icons; колір задає currentColor (див. 4-elements/_media.scss)
+mixin icon(name, cls)
+  span.c-icon(class=cls aria-hidden='true')
+    case name
+      when 'phone'
+        include ../assets/icons/phone.svg
+      when 'burger'
+        include ../assets/icons/burger.svg
+      when 'close'
+        include ../assets/icons/close.svg

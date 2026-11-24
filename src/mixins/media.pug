@@ -1,0 +1,9 @@
+//- Адаптивне зображення: AVIF → WebP → JPEG, srcset + sizes
+//- Опції: name, widths, sizes, width, height, alt, lazy, cls
+mixin picture(opts)
+  - const { name, widths, sizes, width, height, alt = '', lazy = true, cls } = opts
+  - const path = (ext) => widths.map((w) => `/src/assets/images/${name}-${w}.${ext} ${w}w`).join(', ')
+  picture
+    source(type='image/avif' srcset=path('avif') sizes=sizes)
+    source(type='image/webp' srcset=path('webp') sizes=sizes)
+    img(class=cls src=`/src/assets/images/${name}-${widths[widths.length - 1]}.jpg` srcset=path('jpg') sizes=sizes width=width height=height alt=alt loading=(lazy ? 'lazy' : 'eager') fetchpriority=(lazy ? undefined : 'high') decoding='async')

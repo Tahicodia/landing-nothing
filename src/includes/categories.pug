@@ -1,0 +1,12 @@
+section#categories.c-section
+  .o-container
+    .o-grid
+      h2.c-section__title Browse Nothing products by category
+      ul.o-grid.c-section__list
+        each category in categories
+          li.o-grid.c-category
+            each image in category.images
+              - const kind = image.wide ? 'wide' : 'narrow'
+              +picture({ name: image.name, widths: image.wide ? [260, 784, 1344] : [260, 784], sizes: sizes[kind], width: image.wide ? 1344 : 972, height: image.wide ? 648 : 972, cls: `c-category__img c-category__img--${kind}` })
+            h3.c-category__title= category.title
+      a.c-button.c-section__action(href='#recommended') View all

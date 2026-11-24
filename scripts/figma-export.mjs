@@ -1,13 +1,16 @@
+import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const KEY = 'xIVUXiPZ3hdpEFiIC0qbTL';
 const TOKEN = process.env.FIGMA_TOKEN;
+const HEADERS = { 'X-Figma-Token': TOKEN };
 
 if (!TOKEN) {
   console.error('Задай токен: FIGMA_TOKEN=... npm run figma');
   process.exit(1);
 }
 
+// Фото, які в макеті обрізані, експортуємо як вузли: [id, scale]
 const PHOTOS = {
   hero: ['6817:205', 2],
   banner: ['6807:295', 2],
@@ -29,13 +32,39 @@ const SVGS = {
   close: '6802:363',
 };
 
-async function download(items, format, scale, dir) {
-  const ids = Object.values(items).map((v) => (Array.isArray(v) ? v[0] : v));
-  const url = `https://api.figma.com/v1/images/${KEY}?ids=${ids.join(',')}&format=${format}&scale=${scale}`;
-  const res = await fetch(url, { headers: { 'X-Figma-Token': TOKEN } });
-  const { images, err } = await res.json();
+const FORCE = process.argv.includes('--force');
+const missing = (file) => FORCE || !existsSync(file);
 
-  if (err) throw new Error(err);
+// Figma має ліміт запитів: при 429 чекаємо і пробуємо ще раз
+const api = async (url, attempt = 1) => {
+  const res = await fetch(url, { headers: HEADERS });
+
+  if (res.status === 429 && attempt <= 5) {
+    const wait = Number(res.headers.get('retry-after')) || 60;
+    console.log(`Ліміт Figma, чекаю ${wait} с...`);
+    await new Promise((resolve) => setTimeout(resolve, wait * 1000));
+
+    return api(url, attempt + 1);
+  }
+
+  const json = await res.json();
+
+  if (json.err || json.error) throw new Error(json.err || json.message);
+
+  return json;
+};
+
+async function download(allItems, format, scale, dir) {
+  const items = Object.fromEntries(
+    Object.entries(allItems).filter(([name]) => missing(`${dir}/${name}.${format}`))
+  );
+
+  if (!Object.keys(items).length) return;
+
+  const ids = Object.values(items).map((v) => (Array.isArray(v) ? v[0] : v));
+  const { images } = await api(
+    `https://api.figma.com/v1/images/${KEY}?ids=${ids.join(',')}&format=${format}&scale=${scale}`
+  );
 
   await mkdir(dir, { recursive: true });
 

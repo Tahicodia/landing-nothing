@@ -1,0 +1,45 @@
+@use '../2-tools' as *;
+
+.c-product-card {
+  @include span(2);
+
+  @include mq(md) {
+    @include span(6);
+  }
+
+  @include mq(lg) {
+    @include span(4);
+
+    // Компенсує різницю між макетом і висотою 4 рядків опису
+    padding-bottom: var(--space-xs);
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--space-md);
+    aspect-ratio: 1;
+    border-radius: var(--radius-sm);
+  }
+
+  &__name {
+    font-size: var(--fs-title);
+  }
+
+  &__text {
+    margin-top: var(--space-xs);
+  }
+
+  // Додаткове речення є лише у версіях 320 та 744
+  &__lead {
+    @include mq(lg) {
+      display: none;
+    }
+  }
+
+  &__price {
+    margin-top: var(--space-2xs);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-bold);
+  }
+}

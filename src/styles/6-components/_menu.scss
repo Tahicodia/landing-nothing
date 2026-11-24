@@ -1,0 +1,58 @@
+// Меню без JavaScript: відкривається через :target (#menu), закривається посиланням #!
+.c-menu {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 2;
+  height: 100dvh;
+  overflow-y: auto;
+  visibility: hidden;
+  background: var(--color-menu-bg);
+
+  &:target {
+    visibility: visible;
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-h);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-block-start: var(--menu-top);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  &__link {
+    font-family: var(--font-heading);
+    font-size: var(--fs-menu);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-wide);
+  }
+
+  &__phone,
+  &__order {
+    font-family: var(--font-heading);
+    font-size: var(--fs-text);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-base);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
+  }
+
+  &__order {
+    margin-top: var(--space-sm);
+    text-decoration: underline;
+  }
+}

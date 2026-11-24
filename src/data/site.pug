@@ -1,0 +1,58 @@
+//- Дані сторінки (тексти беруться з макета)
+-
+  const phone = { text: '+1 234 5555-55-55', href: 'tel:+12345555555555' }
+  const phoneShort = { text: '+1 234 555-55-55', href: 'tel:+12345555555' }
+  const email = 'hello@nothing.com'
+
+  const menu = [
+    { title: 'Products', href: '#recommended' },
+    { title: 'Store', href: '#categories' },
+    { title: 'Login', href: '#!' },
+    { title: 'Cart(0)', href: '#!' },
+  ]
+
+  const products = [
+    {
+      name: 'Phone (1)',
+      image: 'product-1',
+      lead: 'Designed with instinct, to bring joy back to the everyday.',
+      text: 'Through the Glyph Interface, a perfected OS and exceptional dual camera. All startlingly fast.',
+      price: '$ 499.00',
+    },
+    {
+      name: 'Ear (2)',
+      image: 'product-2',
+      text: 'Perfecting the path from artist to ear. So that music sounds just as it was intended.',
+      price: '$ 149.00',
+    },
+    {
+      name: 'Ear (stick)',
+      image: 'product-3',
+      text: 'Tech you can’t feel. Leaving just space for sound to come to life. Powered by custom sound technology.',
+      price: '$ 119.00',
+    },
+  ]
+
+  const categories = [
+    { title: 'All products', images: [{ name: 'category-1', wide: true }, { name: 'category-2' }] },
+    { title: 'Audio', images: [{ name: 'category-3' }, { name: 'category-4', wide: true }] },
+    { title: 'Accessories', images: [{ name: 'category-5', wide: true }, { name: 'category-6' }] },
+  ]
+
+  const about = [
+    'We’re a London-based tech company on a mission to remove barriers between people and technology.',
+    'To do this, we’re crafting intuitive, flawlessly connected products that improve our lives without getting in the way.',
+    'No confusing tech-speak. No silly product names. Just artistry, passion and trust. And products we’re proud to share with our friends and family. Simple.',
+    'Because beautiful tech shouldn’t be complicated.',
+  ]
+
+  const address = ['400 first ave.', 'suite 700', 'Minneapolis, MN 55401']
+
+  // sizes для srcset: ширина зображення залежно від viewport
+  const sizes = {
+    hero: '(min-width: 1260px) 100vw, (min-width: 744px) 1245px, 712px',
+    banner: '100vw',
+    product: '(min-width: 1260px) 324px, (min-width: 744px) calc(100vw - 144px), calc(100vw - 40px)',
+    wide: '(min-width: 1260px) 672px, (min-width: 744px) calc((100vw - 144px) * 2 / 3), calc((100vw - 60px) / 2)',
+    narrow: '(min-width: 1260px) 324px, (min-width: 744px) calc((100vw - 144px) / 3), calc((100vw - 60px) / 2)',
+  }

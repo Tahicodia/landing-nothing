@@ -1,0 +1,23 @@
+@use '../2-tools' as *;
+
+.c-about {
+  &__text {
+    @include span(2);
+
+    @include mq(md) {
+      @include col(4, 3);
+    }
+
+    @include mq(lg) {
+      @include col(7, 6);
+    }
+  }
+
+  &__p {
+    margin-bottom: 1.4em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
